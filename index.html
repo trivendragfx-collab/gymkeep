@@ -27,7 +27,7 @@ async function loadAdmin(){
 document.getElementById('sendLogin').addEventListener('click',async()=>{
  const email=document.getElementById('authEmail').value.trim();if(email.toLowerCase()!=='trivendragfx@gmail.com'){msg.textContent='Use the registered owner email.';return;}
  const b=document.getElementById('sendLogin');b.disabled=true;b.textContent='Sending…';
- const {error}=await sb.auth.signInWithOtp({email,options:{shouldCreateUser:false,emailRedirectTo:location.href}});
+ const {error}=await sb.auth.signInWithOtp({email,options:{shouldCreateUser:false,emailRedirectTo:'https://trivendragfx-collab.github.io/gymkeep/'}});
  b.disabled=false;b.textContent='Send sign-in link';msg.textContent=error?error.message:'Sign-in link sent. Check your inbox and open it on this device.';
 });
 sb.auth.onAuthStateChange((_event,session)=>{if(session)loadAdmin();});loadAdmin();
