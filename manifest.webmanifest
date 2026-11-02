@@ -1,0 +1,11 @@
+{
+  "name": "GymKeep Master Control",
+  "short_name": "GymKeep",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b100e",
+  "theme_color": "#0b100e",
+  "description": "GymKeep platform master control panel",
+  "icons": []
+}
