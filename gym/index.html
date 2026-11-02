@@ -10,12 +10,12 @@
 <script>
 const URL='https://erxqzvmkdspmovifggii.supabase.co';
 const KEY='sb_publishable_4a7Beq8pwWc6U-MMNEENHA_v4Yql8fk';
+const $=id=>document.getElementById(id);
 let sb=null;
 function setConnection(msg){$('connection').textContent=msg}
 window.addEventListener('error',e=>{setConnection('App error');$('fatal').classList.remove('hide');$('fatal').innerHTML='<h2>GymKeep could not start</h2><p>'+String(e.message||'A browser script failed')+'</p>';});
 if(window.supabase&&window.supabase.createClient){sb=window.supabase.createClient(URL,KEY);}else{setConnection('Connection library failed');$('fatal').classList.remove('hide');$('fatal').innerHTML='<h2>Unable to load secure connection</h2><p>Refresh the page or try another network.</p>';throw new Error('Supabase client library did not load');}
 let gymName='GymKeep Pilot Gym',page='Dashboard',members=[],plans=[],attendance=[];
-const $=id=>document.getElementById(id);
 function toast(s){let e=document.createElement('div');e.className='toast';e.textContent=s;document.body.append(e);setTimeout(()=>e.remove(),2600)}
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function showLogin(msg=''){ $('login').classList.remove('hide');$('workspace').classList.add('hide');$('loginMsg').textContent=msg;$('connection').textContent='Sign-in required';}
